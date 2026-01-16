@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Freddy Mejia, CISSP | Cybersecurity Professional</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "accent-blue": "#00f2ff",
+                        "neon-green": "#22c55e",
+                        "background-dark": "#0a0a0b",
+                        "charcoal": "#121214",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .digital-rain {
+                background-image: linear-gradient(0deg, rgba(18, 18, 20, 0.95) 25%, transparent 25%), 
+                                  linear-gradient(90deg, rgba(30, 30, 35, 0.15) 1px, transparent 1px);
+                background-size: 100% 4px, 20px 100%;
+            }
+            .bento-panel {
+                @apply bg-charcoal/40 backdrop-blur-md border border-primary/20 hover:border-primary/50 transition-all duration-300 rounded-xl overflow-hidden;
+                box-shadow: 0 0 15px rgba(13, 89, 242, 0.05);
+            }
+            .bento-panel:hover {
+                box-shadow: 0 0 25px rgba(13, 89, 242, 0.15);
+            }
+            .outline-text {
+                -webkit-text-stroke: 1px #0d59f2;
+                color: transparent;
+                transition: all 0.4s ease;
+            }
+            .outline-text:hover {
+                color: #0d59f2;
+                -webkit-text-stroke: 1px transparent;
+                text-shadow: 0 0 30px rgba(13, 89, 242, 0.5);
+            }
+            .glass-tile {
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            .stats-glitch {
+                text-shadow: 2px 0 #0d59f2, -2px 0 #00f2ff;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background-dark font-display text-white selection:bg-primary selection:text-white digital-rain min-h-screen">
+    <header class="fixed top-0 z-50 w-full border-b border-primary/10 bg-background-dark/90 backdrop-blur-xl px-6 py-3">
+        <div class="max-w-[1600px] mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-xl">security</span>
+                    </div>
+                    <h1 class="text-xl font-bold tracking-tighter font-mono">F_MEJIA.CYBER</h1>
+                </div>
+                <div class="hidden lg:flex items-center gap-6 px-6 border-l border-white/10">
+                    <div class="flex flex-col">
+                        <span class="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Experience_Clock</span>
+                        <span class="text-xs font-mono text-primary font-bold">7+ YEARS</span>
+                    </div>
+                    <div class="flex flex-col border-l border-white/10 pl-6">
+                        <span class="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Auth_Level</span>
+                        <span class="text-xs font-mono text-primary font-bold">TOP SECRET/SCI with CI Poly</span>
+                    </div>
+                </div>
+            </div>
+            <nav class="hidden xl:flex items-center gap-10">
+                <a class="text-[10px] font-mono uppercase tracking-[0.3em] hover:text-primary transition-colors" href="#hero">01_IDENT</a>
+                <a class="text-[10px] font-mono uppercase tracking-[0.3em] hover:text-primary transition-colors" href="#shield">02_EXPERIENCE</a>
+                <a class="text-[10px] font-mono uppercase tracking-[0.3em] hover:text-primary transition-colors" href="#field-ops">03_PROJECTS</a>
+                <a class="text-[10px] font-mono uppercase tracking-[0.3em] hover:text-primary transition-colors" href="#control">04_COMMS</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <div class="hidden md:block text-right">
+                    <div class="text-[9px] font-mono text-slate-500 uppercase">Status</div>
+                    <div class="text-[10px] font-mono text-neon-green animate-pulse uppercase tracking-tighter font-bold">Encrypted_Link</div>
+                </div>
+                <button class="bg-primary/20 border border-primary/50 hover:bg-primary text-white px-4 py-2 rounded font-bold text-[10px] uppercase tracking-widest transition-all shadow-[0_0_15px_rgba(13,89,242,0.2)]">
+                    VERIFY_USER
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-[1600px] mx-auto p-6 grid grid-cols-12 gap-6 pt-28">
+        <section class="col-span-12 lg:col-span-8 bento-panel relative flex flex-col justify-center px-12 py-12 scroll-mt-28" id="hero">
+            <div class="absolute top-4 right-6 flex items-center gap-2">
+                <span class="text-[10px] font-mono text-white/20 uppercase tracking-widest">Module: CORE_ID</span>
+                <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+            </div>
+            <div class="space-y-4 mb-8">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/30 rounded-full">
+                    <span class="w-2 h-2 bg-neon-green rounded-full animate-pulse shadow-[0_0_8px_#22c55e]"></span>
+                    <span class="text-[11px] font-mono text-primary uppercase font-bold tracking-widest">Active Top Secret/SCI with CI Poly</span>
+                </div>
+                <h2 class="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] outline-text cursor-default">
+                    FREDDY MEJIA,<br/>CISSP
+                </h2>
+            </div>
+            <p class="max-w-2xl text-lg text-slate-400 font-light leading-relaxed">
+                Cybersecurity Professional with <span class="text-white font-medium border-b border-primary/40">7+ years of experience</span> implementing and managing security solutions across global, cloud-based enterprise environments. Proven ability to design and enforce security architecture, ensure regulatory compliance, and work with technical teams supporting large-scale, mission-critical infrastructure. 
+            </p>
+            <div class="mt-10 flex gap-4">
+                <button onclick="window.location.href='https://www.linkedin.com/in/freddymejia/'" class="bg-white text-black px-6 py-3 rounded font-bold text-xs uppercase tracking-widest hover:bg-primary hover:text-white transition-all transform hover:-translate-y-0.5 cursor-pointer">Initialize Handshake</button>
+                <button class="border border-white/10 bg-white/5 backdrop-blur px-6 py-3 rounded font-bold text-xs uppercase tracking-widest hover:border-primary transition-all">Secure Dossier</button>
+            </div>
+        </section>
+
+        <section class="col-span-12 lg:col-span-4 bento-panel p-8 flex flex-col">
+            <h3 class="text-xs font-mono uppercase tracking-[0.4em] text-primary mb-8">Verified_Credentials</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="glass-tile p-4 rounded-lg flex flex-col items-center justify-center text-center gap-3 border-primary/10">
+                    <div class="w-12 h-12 rounded-full border-2 border-primary/40 flex items-center justify-center bg-primary/5">
+                        <span class="material-symbols-outlined text-primary">verified_user</span>
+                    </div>
+                    <div class="text-[10px] font-bold font-mono text-white uppercase tracking-tighter leading-tight">CISSP<br/><span class="text-slate-500 font-normal">#552410</span></div>
+                </div>
+                <div class="glass-tile p-4 rounded-lg flex flex-col items-center justify-center text-center gap-3 border-primary/10">
+                    <div class="w-12 h-12 rounded-full border-2 border-accent-blue/40 flex items-center justify-center bg-accent-blue/5">
+                        <span class="material-symbols-outlined text-accent-blue">terminal</span>
+                    </div>
+                    <div class="text-[10px] font-bold font-mono text-white uppercase tracking-tighter leading-tight">CySA+<br/><span class="text-slate-500 font-normal">Certified</span></div>
+                </div>
+                <div class="glass-tile p-4 rounded-lg flex flex-col items-center justify-center text-center gap-3 border-primary/10">
+                    <div class="w-12 h-12 rounded-full border-2 border-white/40 flex items-center justify-center bg-white/5">
+                        <span class="material-symbols-outlined text-white">dns</span>
+                    </div>
+                    <div class="text-[10px] font-bold font-mono text-white uppercase tracking-tighter leading-tight">PenTest+<br/><span class="text-slate-500 font-normal">Certified</span></div>
+                </div>
+                <div class="glass-tile p-4 rounded-lg flex flex-col items-center justify-center text-center gap-3 border-primary/10">
+                    <div class="w-12 h-12 rounded-full border-2 border-neon-green/40 flex items-center justify-center bg-neon-green/5">
+                        <span class="material-symbols-outlined text-neon-green">lan</span>
+                    </div>
+                    <div class="text-[10px] font-bold font-mono text-white uppercase tracking-tighter leading-tight">Security+<br/><span class="text-slate-500 font-normal">Certified</span></div>
+                </div>
+                <div class="glass-tile p-4 rounded-lg flex flex-col items-center justify-center text-center gap-3 border-primary/10">
+                    <div class="w-12 h-12 rounded-full border-2 border-primary/40 flex items-center justify-center bg-primary/5">
+                        <span class="material-symbols-outlined text-primary">router</span>
+                    </div>
+                    <div class="text-[10px] font-bold font-mono text-white uppercase tracking-tighter leading-tight">Network+<br/><span class="text-slate-500 font-normal">Certified</span></div>
+                </div>
+                <div class="glass-tile p-4 rounded-lg flex flex-col items-center justify-center text-center gap-3 border-primary/10">
+                    <div class="w-12 h-12 rounded-full border-2 border-accent-blue/40 flex items-center justify-center bg-accent-blue/5">
+                        <span class="material-symbols-outlined text-accent-blue">computer</span>
+                    </div>
+                    <div class="text-[10px] font-bold font-mono text-white uppercase tracking-tighter leading-tight">A+<br/><span class="text-slate-500 font-normal">Certified</span></div>
+                </div>
+                <div class="glass-tile p-4 rounded-lg flex flex-col items-center justify-center text-center gap-3 border-primary/10 col-span-2">
+                    <div class="w-12 h-12 rounded-full border-2 border-neon-green/40 flex items-center justify-center bg-neon-green/5">
+                        <span class="material-symbols-outlined text-neon-green">shield</span>
+                    </div>
+                    <div class="text-[10px] font-bold font-mono text-white uppercase tracking-tighter leading-tight">IBM Cybersecurity<br/><span class="text-slate-500 font-normal">Professional Certificate</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-span-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 scroll-mt-28" id="shield">
+            <div class="bento-panel p-8 glass-tile border-primary/20 group hover:border-primary">
+                <div class="flex justify-between items-start mb-6">
+                    <span class="material-symbols-outlined text-4xl text-primary group-hover:scale-110 transition-transform">shield_person</span>
+                    <span class="text-[9px] font-mono text-primary/40 uppercase">Class: Sec-Tech</span>
+                </div>
+                <h4 class="text-xl font-bold uppercase tracking-widest mb-4">Sec-Tech</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-primary rounded-full"></span> SCAP, Open SCAP, Evaluate STIG
+                    </li>
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-primary rounded-full"></span> Tenable Security Center (Nessus)
+                    </li>
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-primary rounded-full"></span> Splunk, IBM QRadar, XACTA
+                    </li>
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-primary rounded-full"></span> Trellix/McAfee ePO
+                    </li>
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-primary rounded-full"></span> Docker/Container Security
+                    </li>
+                </ul>
+            </div>
+            <div class="bento-panel p-8 glass-tile border-accent-blue/20 group hover:border-accent-blue">
+                <div class="flex justify-between items-start mb-6">
+                    <span class="material-symbols-outlined text-4xl text-accent-blue group-hover:scale-110 transition-transform">layers</span>
+                    <span class="text-[9px] font-mono text-accent-blue/40 uppercase">Class: Platforms</span>
+                </div>
+                <h4 class="text-xl font-bold uppercase tracking-widest mb-4">Platforms</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-accent-blue rounded-full"></span> Red Hat Linux
+                    </li>
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-accent-blue rounded-full"></span> Windows OS & Servers
+                    </li>
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-accent-blue rounded-full"></span> VMware vSphere
+                    </li>
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-accent-blue rounded-full"></span> Docker/Podman
+                    </li>
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-accent-blue rounded-full"></span> Secure Containerization
+                    </li>
+                </ul>
+            </div>
+            <div class="bento-panel p-8 glass-tile border-neon-green/20 group hover:border-neon-green">
+                <div class="flex justify-between items-start mb-6">
+                    <span class="material-symbols-outlined text-4xl text-neon-green group-hover:scale-110 transition-transform">gavel</span>
+                    <span class="text-[9px] font-mono text-neon-green/40 uppercase">Class: Compliance</span>
+                </div>
+                <h4 class="text-xl font-bold uppercase tracking-widest mb-4">Compliance</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-neon-green rounded-full"></span> NIST 800-53
+                    </li>
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-neon-green rounded-full"></span> Risk Management Framework (RMF)
+                    </li>
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-neon-green rounded-full"></span> STIG / SRG
+                    </li>
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-neon-green rounded-full"></span> Assessment & Authorization (A&A)
+                    </li>
+                </ul>
+            </div>
+            <div class="bento-panel p-8 glass-tile border-white/20 group hover:border-white">
+                <div class="flex justify-between items-start mb-6">
+                    <span class="material-symbols-outlined text-4xl text-white group-hover:scale-110 transition-transform">hub</span>
+                    <span class="text-[9px] font-mono text-white/40 uppercase">Class: Network</span>
+                </div>
+                <h4 class="text-xl font-bold uppercase tracking-widest mb-4">Network &amp; Infrastructure</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-white rounded-full"></span> VMware, Network Segmentation
+                    </li>
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-white rounded-full"></span> VLAN Security, Cloud Security
+                    </li>
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-white rounded-full"></span> Enterprise Security Architecture
+                    </li>
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-white rounded-full"></span> Zero Trust
+                    </li>
+                    <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
+                        <span class="w-1 h-1 bg-white rounded-full"></span> DevSecOps, Threat Intelligence
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="col-span-12 bento-panel p-8 scroll-mt-28" id="field-ops">
+            <div class="flex items-center justify-between mb-8">
+                <h3 class="text-xs font-mono uppercase tracking-[0.4em] text-primary">Field_Ops / Projects</h3>
+                <span class="material-symbols-outlined text-white/20">biotech</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-black/40 border border-white/5 p-5 rounded-lg hover:border-primary/40 transition-colors">
+                    <div class="flex items-center gap-4 mb-3">
+                        <div class="w-10 h-10 bg-primary/10 rounded flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary">storage</span>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold uppercase tracking-wider">Proxmox Home Lab</h4>
+                            <div class="text-[9px] font-mono text-primary/60">DEPLOYMENT</div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                        Built virtualized home lab with Proxmox and OpenVPN for security testing, software evaluation, network configuration, system hardening, and workflow experimentation. 
+                    </p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="text-[8px] px-2 py-0.5 border border-white/10 rounded font-mono text-slate-500">PROXMOX</span>
+                        <span class="text-[8px] px-2 py-0.5 border border-white/10 rounded font-mono text-slate-500">OPENVPN</span>
+                        <span class="text-[8px] px-2 py-0.5 border border-white/10 rounded font-mono text-slate-500">SECURITY_TESTING</span>
+                    </div>
+                </div>
+                <div class="bg-black/40 border border-white/5 p-5 rounded-lg hover:border-accent-blue/40 transition-colors">
+                    <div class="flex items-center gap-4 mb-3">
+                        <div class="w-10 h-10 bg-accent-blue/10 rounded flex items-center justify-center">
+                            <span class="material-symbols-outlined text-accent-blue">security_update_good</span>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold uppercase tracking-wider">VMware ESXi Home Lab</h4>
+                            <div class="text-[9px] font-mono text-accent-blue/60">IMPLEMENTATION</div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                        Deployed virtualized environment leveraging VMware ESXi with Debian, Ubuntu, RHEL, Kali Linux, and CentOS to simulate enterprise networks and test security configurations. 
+                    </p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="text-[8px] px-2 py-0.5 border border-white/10 rounded font-mono text-slate-500">VMWARE_ESXi</span>
+                        <span class="text-[8px] px-2 py-0.5 border border-white/10 rounded font-mono text-slate-500">RHEL</span>
+                        <span class="text-[8px] px-2 py-0.5 border border-white/10 rounded font-mono text-slate-500">KALI_LINUX</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-span-12 bento-panel bg-black/60 grid grid-cols-12 scroll-mt-28" id="control">
+            <div class="col-span-12 lg:col-span-7 p-8 border-b lg:border-b-0 lg:border-r border-white/5">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="flex gap-1.5">
+                        <div class="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-neon-green/50"></div>
+                    </div>
+                    <div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">COMMS_TERMINAL / SECURE_TUNNEL</div>
+                </div>
+                <form id="contactForm" class="font-mono text-sm space-y-4">
+                    <p class="text-neon-green"><span class="text-white opacity-40">guest@control:~$</span> $ deploy --comms</p>
+                    <p class="text-xs text-slate-500 italic">Initializing communication interface... OK</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input 
+                            id="identString" 
+                            name="name"
+                            class="bg-white/5 border border-white/10 p-3 rounded text-xs outline-none focus:border-neon-green transition-colors text-neon-green placeholder-neon-green/30" 
+                            placeholder="IDENT_STRING" 
+                            type="text"
+                            required
+                        />
+                        <input 
+                            id="originIp" 
+                            name="email"
+                            class="bg-white/5 border border-white/10 p-3 rounded text-xs outline-none focus:border-neon-green transition-colors text-neon-green placeholder-neon-green/30" 
+                            placeholder="ORIGIN_IP" 
+                            type="email"
+                            required
+                        />
+                    </div>
+                    <textarea 
+                        id="payloadMessage" 
+                        name="message"
+                        class="w-full bg-white/5 border border-white/10 p-3 rounded text-xs outline-none focus:border-neon-green transition-colors h-24 text-neon-green placeholder-neon-green/30 resize-none" 
+                        placeholder="PAYLOAD_MESSAGE_BLOCK"
+                        required
+                    ></textarea>
+                    <div id="statusMessage" class="text-xs hidden"></div>
+                    <button 
+                        type="submit"
+                        id="submitBtn"
+                        class="w-full bg-neon-green/10 border border-neon-green/40 text-neon-green py-3 rounded text-xs font-bold uppercase tracking-widest hover:bg-neon-green hover:text-black transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        EXECUTE_TRANSMISSION
+                    </button>
+                </form>
+            </div>
+            <div class="col-span-12 lg:col-span-5 p-8 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-8">
+                        <h3 class="text-xs font-mono uppercase tracking-[0.4em] text-primary">Network_Traffic_Graph</h3>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] font-mono text-neon-green animate-pulse uppercase">Live</span>
+                            <span class="w-1.5 h-1.5 bg-neon-green rounded-full"></span>
+                        </div>
+                    </div>
+                    <div class="h-44 flex items-end gap-1.5 px-2 border-b border-white/10 mb-6">
+                        <div class="w-full bg-primary/20 h-[30%] rounded-t-sm hover:bg-primary/50 transition-colors"></div>
+                        <div class="w-full bg-primary/40 h-[45%] rounded-t-sm hover:bg-primary/50 transition-colors"></div>
+                        <div class="w-full bg-primary/20 h-[25%] rounded-t-sm hover:bg-primary/50 transition-colors"></div>
+                        <div class="w-full bg-primary/60 h-[65%] rounded-t-sm hover:bg-primary/50 transition-colors"></div>
+                        <div class="w-full bg-primary/30 h-[40%] rounded-t-sm hover:bg-primary/50 transition-colors"></div>
+                        <div class="w-full bg-primary/80 h-[85%] rounded-t-sm hover:bg-primary/50 transition-colors"></div>
+                        <div class="w-full bg-primary/40 h-[50%] rounded-t-sm hover:bg-primary/50 transition-colors"></div>
