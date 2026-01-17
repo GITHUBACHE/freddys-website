@@ -416,47 +416,8 @@
             <div class="flex gap-8">
                 <div class="flex flex-col items-end">
                     <span class="text-[9px] font
-                                    <!-- EmailJS Library -->
-                    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-                    <script>
-                        // Initialize EmailJS
-                        (function() {
-                            emailjs.init("v4Rpa_d4ber9Px_zh");
-                        })();
-                    
-                        // Handle form submission
-                        document.getElementById('contactForm').addEventListener('submit', function(e) {
-                            e.preventDefault();
-                            
-                            const statusMessage = document.getElementById('statusMessage');
-                            const submitBtn = document.getElementById('submitBtn');
-                            
-                            // Show loading state
-                            statusMessage.textContent = '> ESTABLISHING_SECURE_CONNECTION...';
-                            statusMessage.className = 'text-xs text-neon-green animate-pulse';
-                            statusMessage.classList.remove('hidden');
-                            submitBtn.disabled = true;
-                            
-                            // Send email using EmailJS
-                            emailjs.sendForm('service_hp3gz2z', '__ejs-test-mail-service__', this)
-                                .then(function() {
-                                    // Success
-                                    statusMessage.textContent = '> TRANSMISSION_COMPLETE [OK]';
-                                    statusMessage.className = 'text-xs text-neon-green';
-                                    document.getElementById('contactForm').reset();
-                                    
-                                    setTimeout(function() {
-                                        statusMessage.classList.add('hidden');
-                                        submitBtn.disabled = false;
-                                    }, 3000);
-                                }, function(error) {
-                                    // Error
-                                    statusMessage.textContent = '> TRANSMISSION_FAILED [ERROR: ' + error.text + ']';
-                                    statusMessage.className = 'text-xs text-red-500';
-                                    submitBtn.disabled = false;
-                                });
-                        });
-                    </script>
+
+
 
 
 
