@@ -336,25 +336,22 @@
                     <p class="text-xs text-slate-500 italic">Initializing communication interface... OK</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <input 
-                            id="identString" 
-                            name="name"
+                            name="from_name" 
                             class="bg-white/5 border border-white/10 p-3 rounded text-xs outline-none focus:border-neon-green transition-colors text-neon-green placeholder-neon-green/30" 
                             placeholder="IDENT_STRING" 
                             type="text"
                             required
                         />
                         <input 
-                            id="originIp" 
-                            name="email"
+                            name="reply_to" 
                             class="bg-white/5 border border-white/10 p-3 rounded text-xs outline-none focus:border-neon-green transition-colors text-neon-green placeholder-neon-green/30" 
-                            placeholder="ORIGIN_IP" 
+                            placeholder="EMAIL_ADDRESS" 
                             type="email"
                             required
                         />
                     </div>
                     <textarea 
-                        id="payloadMessage" 
-                        name="message"
+                        name="message" 
                         class="w-full bg-white/5 border border-white/10 p-3 rounded text-xs outline-none focus:border-neon-green transition-colors h-24 text-neon-green placeholder-neon-green/30 resize-none" 
                         placeholder="PAYLOAD_MESSAGE_BLOCK"
                         required
@@ -413,9 +410,12 @@
                     @ 2026 FREDDY MEJIA, CISSP. SECURE_ENVIRONMENT_PROTECTED.
                 </p>
             </div>
+                </p>
+            </div>
             <div class="flex gap-8">
                 <div class="flex flex-col items-end">
                     <span class="text-[9px] font
+
 
 
 
