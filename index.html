@@ -366,6 +366,50 @@
                     </button>
                 </form>
             </div>
+            <!-- ================= EMAILJS ================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs@4/dist/email.min.js"></script>
+
+<script>
+  (function () {
+    emailjs.init("v4Rpa_d4ber9Px_zh");
+  })();
+
+  const form = document.getElementById("contactForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const statusMessage = document.getElementById("statusMessage");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "TRANSMITTING...";
+    statusMessage.classList.remove("hidden");
+    statusMessage.className = "text-xs text-neon-green";
+    statusMessage.textContent = "Encrypting payload and opening secure channel...";
+
+    emailjs.sendForm(
+      "service_hp3gz2z",
+      "template_b54ap1i",
+      this
+    )
+    .then(() => {
+      statusMessage.textContent = "Transmission successful. Message delivered.";
+      submitBtn.textContent = "TRANSMISSION_COMPLETE";
+      form.reset();
+    })
+    .catch((error) => {
+      console.error(error);
+      statusMessage.className = "text-xs text-red-400";
+      statusMessage.textContent = "Transmission failed. Please retry.";
+      submitBtn.disabled = false;
+      submitBtn.textContent = "RETRY_TRANSMISSION";
+    });
+  });
+</script>
+
+</body>
+</html>
             <div class="col-span-12 lg:col-span-5 p-8 flex flex-col justify-between">
                 <div>
                     <div class="flex items-center justify-between mb-8">
