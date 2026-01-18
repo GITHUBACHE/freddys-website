@@ -371,45 +371,58 @@
 <script src="https://cdn.jsdelivr.net/npm/emailjs@4/dist/email.min.js"></script>
 
 <script>
-  (function () {
-    emailjs.init("v4Rpa_d4ber9Px_zh");
-  })();
+document.addEventListener("DOMContentLoaded", function () {
+
+  emailjs.init("v4Rpa_d4ber9Px_zh"); // Public Key
 
   const form = document.getElementById("contactForm");
   const submitBtn = document.getElementById("submitBtn");
   const statusMessage = document.getElementById("statusMessage");
+
+  if (!form || !submitBtn || !statusMessage) {
+    console.error("EmailJS: Required DOM elements not found.");
+    return;
+  }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     submitBtn.disabled = true;
     submitBtn.textContent = "TRANSMITTING...";
-    statusMessage.classList.remove("hidden");
-    statusMessage.className = "text-xs text-neon-green";
-    statusMessage.textContent = "Encrypting payload and opening secure channel...";
+
+    statusMessage.classList.remove("hidden", "text-red-400");
+    statusMessage.classList.add("text-xs", "text-neon-green");
+    statusMessage.textContent =
+      "Encrypting payload and opening secure channel...";
 
     emailjs.sendForm(
       "service_hp3gz2z",
       "template_b54ap1i",
-      this
+      this,
+      { publicKey: "v4Rpa_d4ber9Px_zh" }
     )
     .then(() => {
-      statusMessage.textContent = "Transmission successful. Message delivered.";
+      statusMessage.textContent =
+        "Transmission successful. Message delivered.";
       submitBtn.textContent = "TRANSMISSION_COMPLETE";
+      submitBtn.disabled = false; // Optional
       form.reset();
     })
     .catch((error) => {
-      console.error(error);
-      statusMessage.className = "text-xs text-red-400";
-      statusMessage.textContent = "Transmission failed. Please retry.";
+      console.error("EmailJS Error:", error);
+
+      statusMessage.classList.remove("text-neon-green");
+      statusMessage.classList.add("text-red-400");
+      statusMessage.textContent =
+        "Transmission failed. Please retry.";
+
       submitBtn.disabled = false;
       submitBtn.textContent = "RETRY_TRANSMISSION";
     });
   });
-</script>
 
-</body>
-</html>
+});
+</script>
             <div class="col-span-12 lg:col-span-5 p-8 flex flex-col justify-between">
                 <div>
                     <div class="flex items-center justify-between mb-8">
@@ -454,3 +467,4 @@
                     @ 2026 FREDDY MEJIA, CISSP. SECURE_ENVIRONMENT_PROTECTED.
                 </p>
             </div>
+
