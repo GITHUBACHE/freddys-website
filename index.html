@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <script id="tailwind-config">
+    <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -27,38 +27,39 @@
             },
         }
     </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .digital-rain {
-                background-image: linear-gradient(0deg, rgba(18, 18, 20, 0.95) 25%, transparent 25%), 
-                                  linear-gradient(90deg, rgba(30, 30, 35, 0.15) 1px, transparent 1px);
-                background-size: 100% 4px, 20px 100%;
-            }
-            .bento-panel {
-                @apply bg-charcoal/40 backdrop-blur-md border border-primary/20 hover:border-primary/50 transition-all duration-300 rounded-xl overflow-hidden;
-                box-shadow: 0 0 15px rgba(13, 89, 242, 0.05);
-            }
-            .bento-panel:hover {
-                box-shadow: 0 0 25px rgba(13, 89, 242, 0.15);
-            }
-            .outline-text {
-                -webkit-text-stroke: 1px #0d59f2;
-                color: transparent;
-                transition: all 0.4s ease;
-            }
-            .outline-text:hover {
-                color: #0d59f2;
-                -webkit-text-stroke: 1px transparent;
-                text-shadow: 0 0 30px rgba(13, 89, 242, 0.5);
-            }
-            .glass-tile {
-                background: rgba(255, 255, 255, 0.03);
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.05);
-            }
-            .stats-glitch {
-                text-shadow: 2px 0 #0d59f2, -2px 0 #00f2ff;
-            }
+    <style>
+        .digital-rain {
+            background-image: linear-gradient(0deg, rgba(18, 18, 20, 0.95) 25%, transparent 25%), 
+                              linear-gradient(90deg, rgba(30, 30, 35, 0.15) 1px, transparent 1px);
+            background-size: 100% 4px, 20px 100%;
+        }
+        .bento-panel {
+            background: rgba(18, 18, 20, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(13, 89, 242, 0.2);
+            transition: all 0.3s;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(13, 89, 242, 0.05);
+        }
+        .bento-panel:hover {
+            border-color: rgba(13, 89, 242, 0.5);
+            box-shadow: 0 0 25px rgba(13, 89, 242, 0.15);
+        }
+        .outline-text {
+            -webkit-text-stroke: 1px #0d59f2;
+            color: transparent;
+            transition: all 0.4s ease;
+        }
+        .outline-text:hover {
+            color: #0d59f2;
+            -webkit-text-stroke: 1px transparent;
+            text-shadow: 0 0 30px rgba(13, 89, 242, 0.5);
+        }
+        .glass-tile {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
     </style>
 </head>
@@ -87,7 +88,6 @@
                 <a class="text-[10px] font-mono uppercase tracking-[0.3em] hover:text-primary transition-colors" href="#hero">01_IDENT</a>
                 <a class="text-[10px] font-mono uppercase tracking-[0.3em] hover:text-primary transition-colors" href="#shield">02_EXPERIENCE</a>
                 <a class="text-[10px] font-mono uppercase tracking-[0.3em] hover:text-primary transition-colors" href="#field-ops">03_PROJECTS</a>
-                <a class="text-[10px] font-mono uppercase tracking-[0.3em] hover:text-primary transition-colors" href="#control">04_COMMS</a>
             </nav>
             <div class="flex items-center gap-4">
                 <div class="hidden md:block text-right">
@@ -248,7 +248,7 @@
                     <span class="material-symbols-outlined text-4xl text-white group-hover:scale-110 transition-transform">hub</span>
                     <span class="text-[9px] font-mono text-white/40 uppercase">Class: Network</span>
                 </div>
-                <h4 class="text-xl font-bold uppercase tracking-widest mb-4">Network &amp; Infrastructure</h4>
+                <h4 class="text-xl font-bold uppercase tracking-widest mb-4">Network & Infrastructure</h4>
                 <ul class="space-y-3">
                     <li class="flex items-center gap-2 text-xs font-mono text-slate-400">
                         <span class="w-1 h-1 bg-white rounded-full"></span> VMware, Network Segmentation
@@ -320,140 +320,6 @@
                 </div>
             </div>
         </section>
-
-        <section class="col-span-12 bento-panel bg-black/60 grid grid-cols-12 scroll-mt-28" id="control">
-            <div class="col-span-12 lg:col-span-7 p-8 border-b lg:border-b-0 lg:border-r border-white/5">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="flex gap-1.5">
-                        <div class="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
-                        <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
-                        <div class="w-2.5 h-2.5 rounded-full bg-neon-green/50"></div>
-                    </div>
-                    <div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">COMMS_TERMINAL / SECURE_TUNNEL</div>
-                </div>
-                <form id="contactForm" class="font-mono text-sm space-y-4">
-                    <p class="text-neon-green"><span class="text-white opacity-40">guest@control:~$</span> $ deploy --comms</p>
-                    <p class="text-xs text-slate-500 italic">Initializing communication interface... OK</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input 
-                            name="from_name" 
-                            class="bg-white/5 border border-white/10 p-3 rounded text-xs outline-none focus:border-neon-green transition-colors text-neon-green placeholder-neon-green/30" 
-                            placeholder="IDENT_STRING" 
-                            type="text"
-                            required
-                        />
-                        <input 
-                            name="reply_to" 
-                            class="bg-white/5 border border-white/10 p-3 rounded text-xs outline-none focus:border-neon-green transition-colors text-neon-green placeholder-neon-green/30" 
-                            placeholder="EMAIL_ADDRESS" 
-                            type="email"
-                            required
-                        />
-                    </div>
-                    <textarea 
-                        name="message" 
-                        class="w-full bg-white/5 border border-white/10 p-3 rounded text-xs outline-none focus:border-neon-green transition-colors h-24 text-neon-green placeholder-neon-green/30 resize-none" 
-                        placeholder="PAYLOAD_MESSAGE_BLOCK"
-                        required
-                    ></textarea>
-                    <div id="statusMessage" class="text-xs hidden"></div>
-                    <button 
-                        type="submit"
-                        id="submitBtn"
-                        class="w-full bg-neon-green/10 border border-neon-green/40 text-neon-green py-3 rounded text-xs font-bold uppercase tracking-widest hover:bg-neon-green hover:text-black transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                        EXECUTE_TRANSMISSION
-                    </button>
-                </form>
-            </div>
-            <!-- ================= EMAILJS ================= -->
-
-<script src="https://cdn.jsdelivr.net/npm/emailjs@4/dist/email.min.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  emailjs.init("v4Rpa_d4ber9Px_zh"); // Public Key
-
-  const form = document.getElementById("contactForm");
-  const submitBtn = document.getElementById("submitBtn");
-  const statusMessage = document.getElementById("statusMessage");
-
-  if (!form || !submitBtn || !statusMessage) {
-    console.error("EmailJS: Required DOM elements not found.");
-    return;
-  }
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = "TRANSMITTING...";
-
-    statusMessage.classList.remove("hidden", "text-red-400");
-    statusMessage.classList.add("text-xs", "text-neon-green");
-    statusMessage.textContent =
-      "Encrypting payload and opening secure channel...";
-
-    emailjs.sendForm(
-      "service_hp3gz2z",
-      "template_b54ap1i",
-      this,
-      { publicKey: "v4Rpa_d4ber9Px_zh" }
-    )
-    .then(() => {
-      statusMessage.textContent =
-        "Transmission successful. Message delivered.";
-      submitBtn.textContent = "TRANSMISSION_COMPLETE";
-      submitBtn.disabled = false; // Optional
-      form.reset();
-    })
-    .catch((error) => {
-      console.error("EmailJS Error:", error);
-
-      statusMessage.classList.remove("text-neon-green");
-      statusMessage.classList.add("text-red-400");
-      statusMessage.textContent =
-        "Transmission failed. Please retry.";
-
-      submitBtn.disabled = false;
-      submitBtn.textContent = "RETRY_TRANSMISSION";
-    });
-  });
-
-});
-</script>
-            <div class="col-span-12 lg:col-span-5 p-8 flex flex-col justify-between">
-                <div>
-                    <div class="flex items-center justify-between mb-8">
-                        <h3 class="text-xs font-mono uppercase tracking-[0.4em] text-primary">Network_Traffic_Graph</h3>
-                        <div class="flex items-center gap-2">
-                            <span class="text-[10px] font-mono text-neon-green animate-pulse uppercase">Live</span>
-                            <span class="w-1.5 h-1.5 bg-neon-green rounded-full"></span>
-                        </div>
-                    </div>
-                    <div class="h-44 flex items-end gap-1.5 px-2 border-b border-white/10 mb-6">
-                        <div class="w-full bg-primary/20 h-[30%] rounded-t-sm hover:bg-primary/50 transition-colors"></div>
-                        <div class="w-full bg-primary/40 h-[45%] rounded-t-sm hover:bg-primary/50 transition-colors"></div>
-                        <div class="w-full bg-primary/20 h-[25%] rounded-t-sm hover:bg-primary/50 transition-colors"></div>
-                        <div class="w-full bg-primary/60 h-[65%] rounded-t-sm hover:bg-primary/50 transition-colors"></div>
-                        <div class="w-full bg-primary/30 h-[40%] rounded-t-sm hover:bg-primary/50 transition-colors"></div>
-                        <div class="w-full bg-primary/80 h-[85%] rounded-t-sm hover:bg-primary/50 transition-colors"></div>
-                        <div class="w-full bg-primary/40 h-[50%] rounded-t-sm hover:bg-primary/50 transition-colors"></div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-white/5 p-4 rounded border border-white/5">
-                            <div class="text-[9px] font-mono text-slate-500 uppercase tracking-tighter">Packets Detected</div>
-                            <div class="text-xl font-bold font-mono">0.00% LOSS</div>
-                        </div>
-                        <div class="bg-white/5 p-4 rounded border border-white/5">
-                            <div class="text-[9px] font-mono text-slate-500 uppercase tracking-tighter">Throughput Peak</div>
-                            <div class="text-xl font-bold font-mono text-primary">12.4 GB/s</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer class="mt-12 py-12 px-6 border-t border-white/5 bg-charcoal/30 backdrop-blur-md">
@@ -464,7 +330,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     <span class="text-[10px] font-mono text-neon-green uppercase tracking-[0.2em] font-bold">SYSTEM STATUS: FULLY OPERATIONAL</span>
                 </div>
                 <p class="text-[10px] font-mono text-slate-500 uppercase tracking-[0.2em]">
-                    @ 2026 FREDDY MEJIA, CISSP. SECURE_ENVIRONMENT_PROTECTED.
+                    © 2026 FREDDY MEJIA, CISSP. SECURE_ENVIRONMENT_PROTECTED.
                 </p>
             </div>
-
+        </div>
+    </footer>
+</body>
+</html>
