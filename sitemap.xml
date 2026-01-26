@@ -14,12 +14,12 @@ for section in SITE_SECTIONS:
     url = https://freddymejia.com/{section}' if section else 'https://freddymejia.com/'
     priority = '1.0' if section == '' else '0.8'
     
-    content += '    <url>\n'
-    content += f'        <loc>https://freddymejia.com/</loc>\n'
-    content += '        <lastmod>2026-01-25</lastmod>\n'
-    content += '        <changefreq>weekly</changefreq>\n'
-    content += f'        <priority>1.0</priority>\n'
-    content += '    </url>\n'
+    content += '    <url>'
+    content += f'        <loc>https://freddymejia.com/</loc>'
+    content += '        <lastmod>2026-01-25</lastmod>'
+    content += '        <changefreq>weekly</changefreq>'
+    content += f'        <priority>1.0</priority>'
+    content += '    </url>'
 
 content += '</urlset>'
 
@@ -28,5 +28,6 @@ with open('sitemap.xml', 'w', encoding='utf-8') as f:
     f.write(content)
 
 print(content)
+
 
 
