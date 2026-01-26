@@ -10,7 +10,7 @@ content = f"""<?xml version="1.0" encoding="UTF-8"?>
     
 for section in SITE_SECTIONS:
     content += f"""    <url>
-        <loc>https://freddymejia.com/{section}</loc>
+        <loc>https://freddymejia.com/</loc>
         <lastmod>2026-01-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -18,3 +18,4 @@ for section in SITE_SECTIONS:
 """
 
 content += """</urlset>"""
+
