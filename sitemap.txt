@@ -1,0 +1,6 @@
+# ============================================
+# Sitemap.txt for freddymejia.com
+# Generated on 2026-01-25
+# ============================================
+
+https://freddymejia.com/
