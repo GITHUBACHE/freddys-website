@@ -3,14 +3,14 @@
 # Generated on 2026-01-25
 # ============================================
     
-<?xml version="1.0" encoding="UTF-8"?>
+content = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 """
     
 for section in SITE_SECTIONS:
     content += f"""    <url>
-        <loc>https://freddymejia.com/</loc>
+        <loc>https://freddymejia.com/{section}</loc>
         <lastmod>2026-01-25</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -19,4 +19,6 @@ for section in SITE_SECTIONS:
 
 content += """</urlset>"""
 
-
+# Write to file
+with open('sitemap.xml', 'w', encoding='utf-8') as f:
+    f.write(content)
