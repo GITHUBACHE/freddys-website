@@ -2,26 +2,29 @@
 # Sitemap.xml for freddymejia.com
 # Generated on 2026-01-25
 # ============================================
-    
-content = """<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-"""
-    
+
+# Define your site sections
+SITE_SECTIONS = ['', 'identity', 'experience', 'projects']
+
+# Build sitemap content
+content = '<?xml version="1.0" encoding="UTF-8"?>\n'
+content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+
 for section in SITE_SECTIONS:
-    content += f"""    <url>
-        <loc>https://freddymejia.com/</loc>
-        <lastmod>2026-01-25</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
-"""
+    url = f'https://freddymejia.com/{section}' if section else 'https://freddymejia.com/'
+    priority = '1.0' if section == '' else '0.8'
+    
+    content += '    <url>\n'
+    content += f'        <loc>{url}</loc>\n'
+    content += '        <lastmod>2026-01-25</lastmod>\n'
+    content += '        <changefreq>weekly</changefreq>\n'
+    content += f'        <priority>{priority}</priority>\n'
+    content += '    </url>\n'
 
-content += """</urlset>"""
+content += '</urlset>'
 
-# Write without BOM, ensure no leading whitespace
-with open('sitemap.xml', 'w', encoding='utf-8-sig') as f:
-    f.write(content.lstrip())
+# Write to file
+with open('sitemap.xml', 'w', encoding='utf-8') as f:
+    f.write(content)
 
-
-
+print(content)
