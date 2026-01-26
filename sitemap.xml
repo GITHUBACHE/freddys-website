@@ -3,31 +3,12 @@
 # Generated on 2026-01-25
 # ============================================
 
-# Define your site sections
-SITE_SECTIONS = ['identity', 'experience', 'projects']
-
-# Build sitemap content
-content = '<?xml version="1.0" encoding="UTF-8"?>'
-content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-
-for section in SITE_SECTIONS:
-    url = https://freddymejia.com/{section}' if section else 'https://freddymejia.com/'
-    priority = '1.0' if section == '' else '0.8'
-    
-    content += '    <url>'
-    content += f'        <loc>https://freddymejia.com/</loc>'
-    content += '        <lastmod>2026-01-25</lastmod>'
-    content += '        <changefreq>weekly</changefreq>'
-    content += f'        <priority>1.0</priority>'
-    content += '    </url>'
-
-content += '</urlset>'
-
-# Write to file
-with open('sitemap.xml', 'w', encoding='utf-8') as f:
-    f.write(content)
-
-print(content)
-
-
-
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>'
+        <loc>https://freddymejia.com/</loc>
+        <lastmod>2026-01-25</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+</urlset>'
