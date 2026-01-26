@@ -4,14 +4,14 @@
 # ============================================
 
 # Define your site sections
-SITE_SECTIONS = ['', 'identity', 'experience', 'projects']
+SITE_SECTIONS = ['identity', 'experience', 'projects']
 
 # Build sitemap content
-content = '<?xml version="1.0" encoding="UTF-8"?>\n'
-content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+content = '<?xml version="1.0" encoding="UTF-8"?>'
+content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
 
 for section in SITE_SECTIONS:
-    url = f'https://freddymejia.com/{section}' if section else 'https://freddymejia.com/'
+    url = https://freddymejia.com/{section}' if section else 'https://freddymejia.com/'
     priority = '1.0' if section == '' else '0.8'
     
     content += '    <url>\n'
@@ -28,4 +28,5 @@ with open('sitemap.xml', 'w', encoding='utf-8') as f:
     f.write(content)
 
 print(content)
+
 
