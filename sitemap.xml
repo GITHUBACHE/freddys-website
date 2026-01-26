@@ -19,6 +19,7 @@ for section in SITE_SECTIONS:
 
 content += """</urlset>"""
 
-# Write to file
-with open('sitemap.xml', 'w', encoding='utf-8') as f:
-    f.write(content)
+# Write without BOM, ensure no leading whitespace
+with open('sitemap.xml', 'w', encoding='utf-8-sig') as f:
+    f.write(content.lstrip())
+
