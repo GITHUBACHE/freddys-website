@@ -425,36 +425,32 @@
 
     <script>
     (async function() {
-        const totalEl  = document.getElementById('totalVisitors');
-        const visitEl  = document.getElementById('visitNum');
+        const totalEl = document.getElementById('totalVisitors');
+        const visitEl = document.getElementById('visitNum');
+
+        function animateCount(el, target) {
+            let current = Math.max(0, target - 40);
+            el.textContent = current.toLocaleString();
+            const step = () => {
+                current = Math.min(current + Math.ceil((target - current) / 6 + 1), target);
+                el.textContent = current.toLocaleString();
+                if (current < target) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+        }
 
         try {
-            // Increment shared visitor count
-            let stored = null;
-            try { stored = await window.storage.get('visitor_count', true); } catch(e) {}
-            const prev = stored ? parseInt(stored.value) || 0 : 0;
-            const next = prev + 1;
-            await window.storage.set('visitor_count', String(next), true);
+            // Hit CountAPI — free public counter, no signup needed.
+            // Uses your domain as a unique namespace so it's only your site's count.
+            const res = await fetch('https://api.countapi.xyz/hit/freddymejia.com/visitors');
+            const data = await res.json();
+            const count = data.value;
 
-            // Animate count up
-            function animateCount(el, target, color) {
-                let start = Math.max(0, target - 30);
-                let current = start;
-                el.textContent = current.toLocaleString();
-                const step = () => {
-                    current = Math.min(current + Math.ceil((target - current) / 6 + 1), target);
-                    el.textContent = current.toLocaleString();
-                    if (current < target) requestAnimationFrame(step);
-                };
-                requestAnimationFrame(step);
-            }
-
-            animateCount(totalEl, next);
-            animateCount(visitEl, next);
-
+            animateCount(totalEl, count);
+            animateCount(visitEl, count);
         } catch(e) {
-            totalEl.textContent = '—';
-            visitEl.textContent = '—';
+            totalEl.textContent = 'N/A';
+            visitEl.textContent = 'N/A';
         }
     })();
     </script>
