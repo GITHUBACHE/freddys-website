@@ -441,11 +441,11 @@
         }
 
         try {
-            // Hit CountAPI — free public counter, no signup needed.
+            // counterapi.dev — free public counter, no signup needed.
             // Uses your domain as a unique namespace so it's only your site's count.
-            const res = await fetch('https://api.countapi.xyz/hit/freddymejia.com/visitors');
+            const res = await fetch('https://api.counterapi.dev/v1/freddymejia.com/visitors/up');
             const data = await res.json();
-            const count = data.value;
+            const count = data.count;
 
             animateCount(totalEl, count);
             animateCount(visitEl, count);
