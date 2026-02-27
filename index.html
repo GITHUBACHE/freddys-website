@@ -409,11 +409,7 @@
                             <span id="onlineNow" class="font-mono text-4xl font-bold text-neon-green tabular-nums" style="text-shadow: 0 0 30px rgba(34,197,94,0.7), 0 0 60px rgba(34,197,94,0.3);">1</span>
                         </div>
                     </div>
-                    <div class="w-px h-12 bg-white/5 hidden md:block"></div>
-                    <div class="text-center">
-                        <div class="text-[9px] font-mono text-slate-500 uppercase tracking-[0.2em] mb-2">Your Visit #</div>
-                        <div id="visitNum" class="font-mono text-4xl font-bold tabular-nums" style="color:#0d59f2; text-shadow: 0 0 30px rgba(13,89,242,0.8), 0 0 60px rgba(13,89,242,0.4);">—</div>
-                    </div>
+
                 </div>
                 <!-- Status badge -->
                 <div class="flex items-center gap-2 border px-4 py-2 rounded" style="border-color: rgba(13,89,242,0.3); background: rgba(13,89,242,0.05); box-shadow: 0 0 16px rgba(13,89,242,0.15);">
@@ -427,7 +423,6 @@
     <script>
     (async function() {
         const totalEl = document.getElementById('totalVisitors');
-        const visitEl = document.getElementById('visitNum');
 
         function animateCount(el, target) {
             let current = Math.max(0, target - 40);
@@ -440,18 +435,41 @@
             requestAnimationFrame(step);
         }
 
-        try {
-            // counterapi.dev — free public counter, no signup needed.
-            // Uses your domain as a unique namespace so it's only your site's count.
+        // Primary: counterapi.dev v1 — free public counter, no signup needed.
+        // Response shape: { data: { up_count: N, ... } }
+        async function tryCounterApiDev() {
             const res = await fetch('https://api.counterapi.dev/v1/freddymejia.com/visitors/up');
-            const data = await res.json();
-            const count = data.count;
+            if (!res.ok) throw new Error('counterapi.dev error: ' + res.status);
+            const json = await res.json();
+            // v1 API returns { data: { up_count } }
+            const count = json?.data?.up_count ?? json?.count ?? json?.value;
+            if (count == null) throw new Error('Unexpected response shape');
+            return count;
+        }
 
+        // Fallback: counterapi.com — alternative free public counter
+        // Response shape: { value: N }
+        async function tryCounterApiCom() {
+            const res = await fetch('https://counterapi.com/api/freddymejia.com/view/visitors');
+            if (!res.ok) throw new Error('counterapi.com error: ' + res.status);
+            const json = await res.json();
+            const count = json?.value ?? json?.count;
+            if (count == null) throw new Error('Unexpected response shape');
+            return count;
+        }
+
+        try {
+            let count;
+            try {
+                count = await tryCounterApiDev();
+            } catch (primaryErr) {
+                console.warn('Primary counter failed, trying fallback:', primaryErr.message);
+                count = await tryCounterApiCom();
+            }
             animateCount(totalEl, count);
-            animateCount(visitEl, count);
         } catch(e) {
+            console.error('All counters failed:', e);
             totalEl.textContent = 'N/A';
-            visitEl.textContent = 'N/A';
         }
     })();
     </script>
