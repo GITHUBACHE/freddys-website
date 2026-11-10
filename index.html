@@ -444,6 +444,11 @@
     (async function() {
         const totalEl = document.getElementById('totalVisitors');
 
+        // The first visitor on this counter is shown as START_AT, then it counts up from there.
+        const START_AT  = 481;
+        const BASE_URL  = 'https://api.counterapi.dev/v1/freddymejia.com/total-visitors';
+        const SEEN_KEY  = 'fm_visit_counted';
+
         function animateCount(el, target) {
             let current = Math.max(0, target - 40);
             el.textContent = current.toLocaleString();
@@ -455,40 +460,29 @@
             requestAnimationFrame(step);
         }
 
-        // Primary: counterapi.dev v1 — free public counter, no signup needed.
-        // Response shape: { data: { up_count: N, ... } }
-        async function tryCounterApiDev() {
-            const res = await fetch('https://api.counterapi.dev/v1/freddymejia.com/visitors/up');
-            if (!res.ok) throw new Error('counterapi.dev error: ' + res.status);
+        // Calls the counter API and returns the raw count (handles the response shapes it has used)
+        async function callCounter(path) {
+            const res = await fetch(BASE_URL + path, { cache: 'no-store' });
+            if (!res.ok) throw new Error('counter API error: ' + res.status);
             const json = await res.json();
-            // v1 API returns { data: { up_count } }
-            const count = json?.data?.up_count ?? json?.count ?? json?.value;
-            if (count == null) throw new Error('Unexpected response shape');
-            return count;
+            const n = Number(json?.data?.up_count ?? json?.count ?? json?.value);
+            if (!Number.isFinite(n)) throw new Error('Unexpected response shape');
+            return n;
         }
 
-        // Fallback: counterapi.com — alternative free public counter
-        // Response shape: { value: N }
-        async function tryCounterApiCom() {
-            const res = await fetch('https://counterapi.com/api/freddymejia.com/view/visitors');
-            if (!res.ok) throw new Error('counterapi.com error: ' + res.status);
-            const json = await res.json();
-            const count = json?.value ?? json?.count;
-            if (count == null) throw new Error('Unexpected response shape');
-            return count;
-        }
+        // Only count a browser once; reloads just read the current total.
+        let alreadyCounted = false;
+        try { alreadyCounted = localStorage.getItem(SEEN_KEY) === '1'; } catch (e) {}
 
         try {
-            let count;
-            try {
-                count = await tryCounterApiDev();
-            } catch (primaryErr) {
-                console.warn('Primary counter failed, trying fallback:', primaryErr.message);
-                count = await tryCounterApiCom();
+            const raw = alreadyCounted ? await callCounter('/') : await callCounter('/up');
+            if (!alreadyCounted) {
+                try { localStorage.setItem(SEEN_KEY, '1'); } catch (e) {}
             }
-            animateCount(totalEl, count);
-        } catch(e) {
-            console.error('All counters failed:', e);
+            // raw === 1 is the very first visit -> shows START_AT
+            animateCount(totalEl, START_AT + Math.max(0, raw - 1));
+        } catch (e) {
+            console.error('Visitor counter failed:', e);
             totalEl.textContent = 'N/A';
         }
     })();
